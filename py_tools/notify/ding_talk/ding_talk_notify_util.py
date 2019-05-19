@@ -17,7 +17,7 @@ def send_robot_notify(notify_text):
 
     print("ready send to ding talk notify:" + notify_text)
 
-    response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
+    response = requests.request("POST", url, data=payload.encode(), headers=headers, params=querystring)
 
     print("response:" + response.text)
 
