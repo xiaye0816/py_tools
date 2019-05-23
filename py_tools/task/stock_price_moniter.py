@@ -46,12 +46,14 @@ while True:
                     stock_name, current_price, base_price,
                     round((current_price - base_price) / base_price * 100, 2)))
 
+            # 防止一分钱拉锯导致连续通知
+            if not notified_price and abs(notified_price - current_price) > 0.01:
+                fast_check_count = 5
+
             notified_price = current_price
             notified_percent_level = current_percent_level
 
-            # 防止一分钱拉锯导致连续通知
-            if abs(notified_price - current_price) > 0.01:
-                fast_check_count = 5
+
 
     except:
         print("查询出错了...")
