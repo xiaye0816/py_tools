@@ -63,7 +63,7 @@ def func():
             time.sleep(1)
             fast_check_count = fast_check_count - 1
         else:
-            time.sleep(5)
+            time.sleep(10)
 
 
 if __name__ == '__main__':
