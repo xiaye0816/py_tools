@@ -19,7 +19,7 @@ def func():
 
     notify_text = '[%s] 当前:%s 基础:%s 涨跌幅:[%s%%]'
 
-    # 快速查询剩余次数 (每次触发percent变化后, 每秒查询一次, 连续5次，其他时间每5秒查询一次)
+    # 快速查询剩余次数 (每次触发percent变化后, 每2秒查询一次, 连续3次，其他时间每10秒查询一次)
     fast_check_count = 0
 
     while True:
@@ -50,7 +50,7 @@ def func():
 
                 # 防止一分钱拉锯导致连续通知
                 if notified_price and abs(notified_price - current_price) > 0.01:
-                    fast_check_count = 5
+                    fast_check_count = 3
 
                 notified_price = current_price
                 notified_percent_level = current_percent_level
@@ -60,10 +60,10 @@ def func():
 
         # 休息片刻，重新拉取数据
         if fast_check_count > 0:
-            time.sleep(1)
+            time.sleep(2)
             fast_check_count = fast_check_count - 1
         else:
-            time.sleep(5)
+            time.sleep(10)
 
 
 if __name__ == '__main__':
