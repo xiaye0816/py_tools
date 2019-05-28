@@ -5,8 +5,8 @@ import time
 
 def func():
     # 股票代码
-    stock_code = 'sh600794'
-    # stock_code = 'sh601018'
+    # stock_code = 'sh600794'
+    stock_code = 'sh601018'
 
     # 已通知percent 按百分比取整
     notified_percent_level = None
