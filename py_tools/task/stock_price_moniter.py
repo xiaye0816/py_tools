@@ -6,11 +6,11 @@ import time
 def func():
 
     # 股票代码
-    stock_code = 'sh601018'
+    stock_code = 'sh603399'
 
     notified_price = None
 
-    trigger_notify_price = None
+    trigger_notify_price = 0.1
 
     notify_text = '[%s] 当前:%s 基础:%s 涨跌幅:[%s%%]'
 
@@ -30,7 +30,7 @@ def func():
         if not notified_price or abs(current_price - notified_price) >= trigger_notify_price:
 
             notified_price = current_price
-            trigger_notify_price = base_price / 10
+            # trigger_notify_price = base_price / 10
 
             ding_talk_notify_util.send_robot_notify(
                 notify_text % (
