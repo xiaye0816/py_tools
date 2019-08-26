@@ -1,12 +1,15 @@
 from py_tools.data.stock import stock_data_util
 from py_tools.notify.ding_talk import ding_talk_notify_util
 import time
+import datetime
 
 
 def func():
 
     # 股票代码
-    stock_code = 'sh603399'
+    stock_code = 'sz002886'
+    # stock_code = 'sz000089'
+    # stock_code = 'sh603817'
 
     notified_price = None
 
@@ -43,6 +46,10 @@ def func():
         except:
 
             print("查询出错了...")
+
+        if datetime.datetime.now().hour < 9 or datetime.datetime.now().hour >= 15:
+            print("超出交易时间，退出程序!")
+            break
 
         if fast_check_count > 0:
             time.sleep(2)
