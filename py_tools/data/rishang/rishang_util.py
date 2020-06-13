@@ -32,7 +32,8 @@ def check_rishang_stock(goodsId):
                     time.sleep(5)
 
     except:
-        ding_talk_notify_util.send_rishang_robot_notify("查询库存失败啦，小哥哥快去检查一下!")
+        print("查询库存失败啦，小哥哥快去检查一下!")
+        # ding_talk_notify_util.send_rishang_robot_notify("查询库存失败啦，小哥哥快去检查一下!")
         raise
 
 
